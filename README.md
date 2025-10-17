@@ -24,75 +24,95 @@ Abra um terminal na raiz do projeto e execute:
 
 ```powershell
 npm install
-```
+<!-- prettier-ignore -->
+# 🚀 Plainly
 
-## Scripts úteis
+[![Next.js](https://img.shields.io/badge/Next.js-14-black?style=flat&logo=next.js)](https://nextjs.org)
+[![React](https://img.shields.io/badge/React-18-61DAFB?style=flat&logo=react&logoColor=white)](https://reactjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-%23529EC2?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
 
-Extraído de `package.json`:
-
-- `npm run dev` — inicia o servidor de desenvolvimento (Next.js).
-- `npm run build` — constrói a aplicação para produção.
-- `npm run start` — inicia a aplicação em modo produção (após `build`).
-- `npm run lint` — roda o ESLint.
-
-Exemplo de uso local:
-
-```powershell
-npm run dev
-# Depois abra http://localhost:3000
-```
-
-## Estrutura principal do projeto
-
-Pontos relevantes encontrados no repositório:
-
-- `/src/app` — entradas e layouts da aplicação (`layout.tsx`, `page.tsx`).
-- `/src/components` — componentes da UI, páginas e componentes do dashboard (ex.: `dashboard/nav-items.tsx`, `resume/*`).
-- `/src/components/shared` — provedores e utilitários compartilhados (`theme-provider.tsx`).
-- `/src/components/ui` — primitives e componentes de interface (botões, inputs, editor, dialogs, etc.).
-- `/src/lib/utils.ts` — utilitários (ex.: helper `cn` para classNames com `tailwind-merge`).
-- `/src/styles` — estilos globais (`globals.css`).
-- `next.config.mjs` — configuração customizada do webpack para suportar SVG via `@svgr/webpack`.
-- `tailwind.config.ts` — configuração do Tailwind (tema, cores e plugins).
-
-Arquivos importantes para desenvolvimento: `src/app/layout.tsx` (setup de fontes e `ThemeProvider`) e `src/components/ui/editor` (integração do TipTap).
-
-## Notas de implementação
-
-- O projeto usa `next-themes` para gerenciamento de tema (dark/light).
-- Foi configurado um loader SVGR em `next.config.mjs` — SVGs podem ser importados como componentes React.
-- O editor utiliza TipTap com extensões (ex.: alinhamento, underline, starter-kit).
-
-## Deploy
-
-Recomendado: Vercel (integrado com Next.js). Passos gerais:
-
-1. Conectar o repositório no Vercel.
-2. Definir variáveis de ambiente (se houver) em `Environment Variables` no painel do Vercel.
-3. Deploy automático a cada push na branch `main` (ou branch configurada).
-
-## Como contribuir
-
-1. Fork o repositório e crie uma branch feature/bugfix.
-2. Abra um PR descrevendo a mudança.
-3. Mantenha o código com TypeScript e estilos consistentes (Tailwind + classes utilitárias).
-
-Sugestões de melhorias (próximos passos):
-
-- Adicionar testes unitários/integração (Jest + React Testing Library).
-- Configurar CI (GitHub Actions) para rodar lint, typecheck e testes.
-- Melhorar acessibilidade (a11y) e cobertura de contrastes de cores.
-- Adicionar página de onboarding ou tutoriais para criação de currículos.
-
-## Troubleshooting
-
-- Problema: SVGs não carregam como componente — verifique `next.config.mjs` e instale `@svgr/webpack`.
-- Problema: Erros de CSS/ Tailwind — rode `npm install` e reinicie o servidor dev; verifique a propriedade `content` em `tailwind.config.ts`.
-
-## Contato
-
-Se você tem dúvidas, pode abrir uma Issue no repositório ou me chamar diretamente nos comentários do PR.
+Uma aplicação para criação e gerenciamento de currículos (resumes) com editor rico (TipTap), temas claros/escuros e componentes reutilizáveis.
 
 ---
 
-README gerado automaticamente com base na análise dos arquivos do projeto (package.json, next.config.mjs, tailwind.config.ts e entradas em `src/app`).
+## ✨ Destaques
+
+- UI moderna e acessível (Radix UI + Tailwind).
+- Editor WYSIWYG com TipTap para edição de seções do currículo.
+- Suporte a temas via `next-themes` (modo claro/escuro).
+- Importação de SVGs como componentes React (SVGR configurado).
+
+## 🔧 Requisitos
+
+- Node.js 18+ (recomendado)
+- npm, yarn ou pnpm
+
+> Observação: se usar integrações externas (APIs de IA, etc.), crie um `.env.local` na raiz e adicione as variáveis necessárias.
+
+## 🏁 Começando (Windows - PowerShell)
+
+Abra um terminal na raiz do projeto:
+
+```powershell
+npm install
+npm run dev
+```
+
+Depois, acesse http://localhost:3000
+
+## 📦 Scripts úteis
+
+- `npm run dev` — iniciar servidor de desenvolvimento.
+- `npm run build` — gerar build para produção.
+- `npm run start` — iniciar servidor em modo produção (após `build`).
+- `npm run lint` — rodar ESLint.
+
+## 📁 Estrutura principal
+
+- `src/app` — rotas e layouts do Next.js
+- `src/components` — componentes por página e primitives de UI
+- `src/components/shared` — providers (ex.: `theme-provider.tsx`)
+- `src/components/ui` — componentes básicos (button, input, editor, dialog)
+- `src/lib/utils.ts` — helpers (ex.: `cn` para classNames)
+- `src/styles` — estilos globais (Tailwind `globals.css`)
+
+## 🛠️ Notas técnicas
+
+- `next.config.mjs` contém configuração para carregar SVGs via `@svgr/webpack`.
+- Editor baseado em TipTap com extensões como `@tiptap/extension-text-align` e `@tiptap/extension-underline`.
+- `tailwind.config.ts` define tokens de cor e fontes customizadas.
+
+## ☁️ Deploy
+
+Recomendado: Vercel (integração nativa com Next.js).
+
+1. Conecte o repositório ao Vercel.
+2. Configure variáveis de ambiente (se aplicável).
+3. Deploy automático a cada push na branch `main`.
+
+## 🤝 Como contribuir
+
+1. Fork e crie uma branch `feature/*` ou `fix/*`.
+2. Abra um PR com descrição clara das mudanças.
+3. Siga as convenções de código (TypeScript, Tailwind utilities).
+
+## ✅ Sugestões de melhorias
+
+- Adicionar testes (Jest + React Testing Library).
+- GitHub Actions para CI (lint, typecheck, testes).
+- Templates de Issues e PR.
+- Página de onboarding para novos usuários.
+
+## 🔎 Troubleshooting
+
+- SVGs não aparecem como componente? Verifique `next.config.mjs` e se `@svgr/webpack` está instalado.
+- Problemas com Tailwind? Confirme `content` no `tailwind.config.ts` e reinicie o servidor dev.
+
+## 📬 Contato
+
+Abra uma Issue ou PR no repositório para discutir melhorias ou relatar bugs.
+
+---
+
+_README atualizado: adicionado visual (badges, emojis) e simplificado para leitura rápida._
