@@ -10,7 +10,7 @@ import {
   TooltipContent,
   TooltipTrigger,
   TooltipProvider,
-} from "@/components/ui/tooltip";
+} from "@/components/ui/tooltip/primitive";
 
 type FormData = {
   title: string;
