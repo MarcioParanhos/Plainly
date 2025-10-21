@@ -80,3 +80,7 @@ type ResumeContentData = {
   certifications: Partial<ResumeCertificationData>[];
   projects: Partial<ResumeProjectData>[];
 };
+
+type ResumeData = {
+  content: ResumeContentData;
+}
