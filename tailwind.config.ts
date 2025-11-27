@@ -12,6 +12,8 @@ const config: Config = {
   	extend: {
 		fontFamily: {
 			sans: ["var(--font-sans)", ...fontFamily.sans],
+			title: ["var(---font-title)", ...fontFamily.serif],
+			arial: ["Arial", ...fontFamily.sans]
 		},
   		backgroundImage: {
   			'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

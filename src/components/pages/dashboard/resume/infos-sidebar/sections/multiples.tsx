@@ -9,10 +9,12 @@ import {
   Section,
   Share2,
 } from "lucide-react";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { MultipleDragItemData, MultipleDragList } from "../multiple-drag-list";
 
 export const MultiplesSections = () => {
+  const [sectionToAdd, setSectionToAdd] = useState<MultipleDragItemData | null>(null);
+
   const sectionsKeys: MultipleDragItemData[] = [
     {
       formKey: "socialMedias",
@@ -71,7 +73,7 @@ export const MultiplesSections = () => {
           <Separator className="my-5" />
           <MultipleDragList
             data={section}
-            onAdd={() => {}}
+            onAdd={() => setSectionToAdd(section)}
             onEdit={(index) => {}}
           />
         </Fragment>
